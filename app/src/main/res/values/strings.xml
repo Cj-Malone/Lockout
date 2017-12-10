@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Lockout</string>
+    <string name="device_admin">Lockout QuickTile</string>
+    <string name="device_admin_description">QuickTile Blah Blah Blah</string>
+    <string name="admin_receiver_status_enabled">Lockout Enabled</string>
+    <string name="admin_receiver_status_disable_warning">Disabling this will remove the Lockout QuickTile</string>
+    <string name="admin_receiver_status_disabled">Lockout Disabled</string>
 </resources>
