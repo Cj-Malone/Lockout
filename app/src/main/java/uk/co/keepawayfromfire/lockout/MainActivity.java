@@ -34,7 +34,6 @@ public class MainActivity extends Activity {
         IntentFilter intentFilter = new IntentFilter("android.intent.action.USER_PRESENT");
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.BOOT_COMPLETED");
-        intentFilter.addAction("android.intent.action.SCREEN_OFF");
 
         context.registerReceiver(new UnlockReceiver(), intentFilter);
     }
