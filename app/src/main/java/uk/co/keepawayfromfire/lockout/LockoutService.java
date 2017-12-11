@@ -2,7 +2,6 @@ package uk.co.keepawayfromfire.lockout;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.service.quicksettings.TileService;
 
@@ -16,7 +15,7 @@ public class LockoutService extends TileService {
     public void onClick() {
         super.onClick();
 
-        DevicePolicyManager devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+        DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
 
         ComponentName adminComponentName = new ComponentName(this, AdminReceiver.class);
         if (!devicePolicyManager.isAdminActive(adminComponentName)) {
@@ -26,7 +25,7 @@ public class LockoutService extends TileService {
 //                        "com.android.settings.DeviceAdminAdd");
 //                intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, deviceAdminInfo);
 //            } catch (Exception e) {
-//                Log.e("A", e.toString());
+//                Log.e("ERROR", e.toString());
 //
             intent.setClassName("com.android.settings", "com.android.settings.DeviceAdminSettings");
 //            }
