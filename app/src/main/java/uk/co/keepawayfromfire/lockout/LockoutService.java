@@ -19,20 +19,24 @@ public class LockoutService extends TileService {
 
         ComponentName adminComponentName = new ComponentName(this, AdminReceiver.class);
         if (!devicePolicyManager.isAdminActive(adminComponentName)) {
-            Intent intent = new Intent();
-//            try {
-//                intent.setClassName("com.android.settings",
-//                        "com.android.settings.DeviceAdminAdd");
-//                intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, deviceAdminInfo);
-//            } catch (Exception e) {
-//                Log.e("ERROR", e.toString());
-//
-            intent.setClassName("com.android.settings", "com.android.settings.DeviceAdminSettings");
-//            }
-
-            this.startActivityAndCollapse(intent);
+            this.startActivityAndCollapse(buildAdminSettingsIntent());
         } else {
             devicePolicyManager.lockNow();
         }
+    }
+
+    static Intent buildAdminSettingsIntent() {
+        Intent intent = new Intent();
+//        try {
+//            intent.setClassName("com.android.settings",
+//                    "com.android.settings.DeviceAdminAdd");
+//            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, deviceAdminInfo);
+//        } catch (Exception e) {
+//            Log.e("ERROR", e.toString());
+//
+        intent.setClassName("com.android.settings", "com.android.settings.DeviceAdminSettings");
+//        }
+
+        return intent;
     }
 }
