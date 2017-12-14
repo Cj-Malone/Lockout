@@ -6,8 +6,8 @@
         android:shortcutId="quick_lock"
         android:shortcutShortLabel="@string/shortcut_title">
         <intent
-            android:action="com.twofortyfouram.locale.intent.action.FIRE_SETTING"
-            android:targetClass="uk.co.keepawayfromfire.lockout.TaskerReceiver"
+            android:action="android.intent.action.VIEW"
+            android:targetClass="uk.co.keepawayfromfire.lockout.AppShortcutActivity"
             android:targetPackage="uk.co.keepawayfromfire.lockout" />
     </shortcut>
 </shortcuts>
