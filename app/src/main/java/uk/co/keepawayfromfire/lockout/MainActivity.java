@@ -29,6 +29,9 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
+        getWindow().setStatusBarColor(android.R.attr.colorPrimary);
+        getWindow().setNavigationBarColor(android.R.attr.colorPrimary);
+
         SharedPreferences sharedPreferences = getSharedPreferences("unlock-data",
                 Context.MODE_PRIVATE);
         String date = DateFormat.getDateTimeInstance().format(
