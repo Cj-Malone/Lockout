@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -22,7 +21,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        registerUnlockReciever(this);
+        registerUnlockReceiver(this);
     }
 
     @Override
@@ -49,12 +48,12 @@ public class MainActivity extends Activity {
         cbAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                view.getContext().startActivity(LockoutService.buildAdminSettingsIntent());
+                view.getContext().startActivity(QuickSettingService.buildAdminSettingsIntent());
             }
         });
     }
 
-    static void registerUnlockReciever(Context context) {
+    static void registerUnlockReceiver(Context context) {
         IntentFilter intentFilter = new IntentFilter("android.intent.action.USER_PRESENT");
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.BOOT_COMPLETED");

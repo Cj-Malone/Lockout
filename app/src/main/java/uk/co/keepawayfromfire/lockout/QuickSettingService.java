@@ -9,7 +9,7 @@ import android.service.quicksettings.TileService;
  * Created by cj on 10/12/17.
  */
 
-public class LockoutService extends TileService {
+public class QuickSettingService extends TileService {
 
     @Override
     public void onClick() {

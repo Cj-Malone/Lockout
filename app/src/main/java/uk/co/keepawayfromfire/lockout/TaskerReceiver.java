@@ -18,7 +18,7 @@ public class TaskerReceiver extends BroadcastReceiver {
 
         ComponentName adminComponentName = new ComponentName(context, AdminReceiver.class);
         if (!devicePolicyManager.isAdminActive(adminComponentName)) {
-            context.startActivity(LockoutService.buildAdminSettingsIntent());
+            context.startActivity(QuickSettingService.buildAdminSettingsIntent());
         } else {
             devicePolicyManager.lockNow();
         }
