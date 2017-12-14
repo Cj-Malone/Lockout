@@ -25,7 +25,7 @@ public class LockoutService extends TileService {
         }
     }
 
-    static Intent buildAdminSettingsIntent() {
+    public static Intent buildAdminSettingsIntent() {
         Intent intent = new Intent();
 //        try {
 //            intent.setClassName("com.android.settings",

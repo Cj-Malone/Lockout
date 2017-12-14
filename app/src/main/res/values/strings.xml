@@ -6,4 +6,5 @@
     <string name="admin_receiver_status_enabled">Lockout Enabled</string>
     <string name="admin_receiver_status_disable_warning">Disabling this will remove the Lockout QuickTile</string>
     <string name="admin_receiver_status_disabled">Lockout Disabled</string>
+    <string name="shortcut_title">Quick Lockout</string>
 </resources>
