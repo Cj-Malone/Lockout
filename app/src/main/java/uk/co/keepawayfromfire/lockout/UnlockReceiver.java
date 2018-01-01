@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -21,5 +22,7 @@ public class UnlockReceiver extends BroadcastReceiver {
         long unlockTime = new Date().getTime();
 
         sharedPreferences.edit().putLong("last-unlock", unlockTime).apply();
+
+        Toast.makeText(context, "Unlocked", Toast.LENGTH_SHORT).show();
     }
 }
