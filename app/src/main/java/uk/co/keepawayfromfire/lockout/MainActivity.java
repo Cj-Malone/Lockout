@@ -40,8 +40,8 @@ public class MainActivity extends Activity {
         TextView tvLastUnlock = findViewById(R.id.tvLastUnlock);
         tvLastUnlock.setText(date);
 
-        DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
-        ComponentName adminComponentName = new ComponentName(this, AdminReceiver.class);
+        final DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
+        final ComponentName adminComponentName = new ComponentName(this, AdminReceiver.class);
 
         CheckBox cbAdmin = findViewById(R.id.cbAdmin);
         cbAdmin.setOnClickListener(null);
@@ -49,7 +49,15 @@ public class MainActivity extends Activity {
         cbAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                view.getContext().startActivity(QuickSettingService.buildAdminSettingsIntent());
+                Intent intent = new Intent();
+                if (devicePolicyManager.isAdminActive(adminComponentName)) {
+                    intent.setClassName("com.android.settings", "com.android.settings.DeviceAdminSettings");
+                } else {
+                    intent.setAction(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+                    intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, adminComponentName);
+                }
+
+                view.getContext().startActivity(intent);
             }
         });
     }

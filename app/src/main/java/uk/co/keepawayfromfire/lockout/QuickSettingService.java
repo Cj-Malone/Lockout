@@ -19,24 +19,14 @@ public class QuickSettingService extends TileService {
 
         ComponentName adminComponentName = new ComponentName(this, AdminReceiver.class);
         if (!devicePolicyManager.isAdminActive(adminComponentName)) {
-            this.startActivityAndCollapse(buildAdminSettingsIntent());
+            Intent intent = new Intent();
+            // intent.setAction(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+            // intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, adminComponentName);
+            intent.setClassName("com.android.settings", "com.android.settings.DeviceAdminSettings");
+
+            this.startActivityAndCollapse(intent);
         } else {
             devicePolicyManager.lockNow();
         }
-    }
-
-    public static Intent buildAdminSettingsIntent() {
-        Intent intent = new Intent();
-//        try {
-//            intent.setClassName("com.android.settings",
-//                    "com.android.settings.DeviceAdminAdd");
-//            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, deviceAdminInfo);
-//        } catch (Exception e) {
-//            Log.e("ERROR", e.toString());
-//
-        intent.setClassName("com.android.settings", "com.android.settings.DeviceAdminSettings");
-//        }
-
-        return intent;
     }
 }
