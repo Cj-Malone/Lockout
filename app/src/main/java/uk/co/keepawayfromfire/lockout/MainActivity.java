@@ -21,8 +21,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        registerUnlockReceiver(this);
     }
 
     @Override
@@ -61,13 +59,4 @@ public class MainActivity extends Activity {
             }
         });
     }
-
-    static void registerUnlockReceiver(Context context) {
-        IntentFilter intentFilter = new IntentFilter("android.intent.action.USER_PRESENT");
-        intentFilter.addAction("android.intent.action.SCREEN_ON");
-        intentFilter.addAction("android.intent.action.BOOT_COMPLETED");
-
-        context.registerReceiver(new UnlockReceiver(), intentFilter);
-    }
-
 }
