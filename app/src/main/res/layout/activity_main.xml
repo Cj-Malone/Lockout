@@ -7,18 +7,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Last Unlock"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
-
-    <TextView
-        android:id="@+id/tvLastUnlock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/device_admin_description"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault" />
 

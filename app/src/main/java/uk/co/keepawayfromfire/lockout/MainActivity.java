@@ -3,16 +3,10 @@ package uk.co.keepawayfromfire.lockout;
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.TextView;
-
-import java.text.DateFormat;
-import java.util.Date;
 
 public class MainActivity extends Activity {
 
@@ -28,14 +22,6 @@ public class MainActivity extends Activity {
 
         getWindow().setStatusBarColor(android.R.attr.colorPrimary);
         getWindow().setNavigationBarColor(android.R.attr.colorPrimary);
-
-        SharedPreferences sharedPreferences = getSharedPreferences("unlock-data",
-                Context.MODE_PRIVATE);
-        String date = DateFormat.getDateTimeInstance().format(
-                new Date(sharedPreferences.getLong("last-unlock", 0)));
-
-        TextView tvLastUnlock = findViewById(R.id.tvLastUnlock);
-        tvLastUnlock.setText(date);
 
         final DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
         final ComponentName adminComponentName = new ComponentName(this, AdminReceiver.class);
