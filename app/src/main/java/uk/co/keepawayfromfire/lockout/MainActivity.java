@@ -20,9 +20,6 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        getWindow().setStatusBarColor(android.R.attr.colorPrimary);
-        getWindow().setNavigationBarColor(android.R.attr.colorPrimary);
-
         final DevicePolicyManager devicePolicyManager = getSystemService(DevicePolicyManager.class);
         final ComponentName adminComponentName = new ComponentName(this, AdminReceiver.class);
 
