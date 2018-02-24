@@ -1,6 +1,7 @@
 package uk.co.keepawayfromfire.lockout;
 
 import android.app.Activity;
+import android.app.UiModeManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -13,6 +14,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        UiModeManager uiModeManager = getSystemService(UiModeManager.class);
+        uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
+
         setContentView(R.layout.activity_main);
     }
 
